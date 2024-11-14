@@ -352,6 +352,20 @@ mqtt:
 ```
 > the attribute ```force_update: true``` is useful if you want to force the update of the value even if the value is the same as the last message received. It allows to have meaningful value graphs in history.
 
+⚠️It’s essential to set the value of what you want to integrate with Home Assistant on an attribute exactly named ```value```. Without this, the MQTT sensor won’t take into account your JSON path set on the attribute ```value_template```.
+
+Below is a sample of what MQTT sensor can integrate :
+``` json
+{
+  "barometer": {
+    "context": {
+      "uplink_fcnt": 9864
+    },
+    "timestamp": 1675848714898,
+    "value": 1028.6
+  }
+}
+```
 ### Home Assistant Dashboard
 
 Now, that I have synchronised my external data sensors with Home Assistant, I will be able to use them to control my house for future purposes.  
